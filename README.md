@@ -66,6 +66,7 @@
   3. **派生作品：** 任何派生作品必须同样采用 AGPL-3.0 和 自定协议，并在适当的地方注明原始项目的许可证
   4. **免责声明：** 根据 AGPL-3.0 和 自定协议，本项目不提供任何明示或暗示的担保
   5. **社区参与：** 欢迎社区的参与和贡献，我们鼓励开发者一同改进和维护本项目
+  6.This project is licensed under the GNU AGPLv3.All redistribution and derivative works are subject to both LICENSE and LICENSE.addendum.LICENSE.addendum is an inseparable supplementary term pursuant to AGPLv3 Section 7, with equal legal force.Any distribution without LICENSE.addendum constitutes a license violation.
 
 <br />
 
