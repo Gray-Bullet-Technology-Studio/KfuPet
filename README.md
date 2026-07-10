@@ -1,6 +1,6 @@
 <div align="center">
 <img alt="logo" height="100" width="100" src="docs/logo.png" />
-<h2> Kfu AI Pet </h2>
+<h2> Kfu Pet </h2>
 <p> 你的智能桌面伙伴 </p>
 <br />
 
