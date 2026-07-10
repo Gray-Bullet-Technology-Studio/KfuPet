@@ -60,7 +60,7 @@
 ## 📜 开源许可
 
 - **本项目仅供个人学习研究使用，禁止用于商业及非法用途**
-- 本项目基于 [GNU Affero General Public License (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0.html) + [自定协议进行开源]()
+- 本项目基于 [GNU Affero General Public License (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0.html) + [自定协议进行开源](LICENSE.addendum)
   1. **修改和分发：** 任何对本项目的修改和分发都必须基于 AGPL-3.0 和 自定协议 进行，源代码必须一并提供
   2. **网络服务：** 如果本项目的代码被用于提供网络服务，服务的用户必须能够获取完整的源代码
   3. **派生作品：** 任何派生作品必须同样采用 AGPL-3.0 和 自定协议，并在适当的地方注明原始项目的许可证
