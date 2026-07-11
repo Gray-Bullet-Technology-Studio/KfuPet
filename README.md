@@ -57,12 +57,12 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="docs/QQ.jpg" height="600" alt="欢迎加入讨论">
+      <img src="docs/QQ.jpg" height="520" alt="欢迎加入讨论">
       <br>
       <span>欢迎加入讨论</span>
     </td>
     <td align="center">
-      <img src="docs/QQ2.jpg" height="600" alt="欢迎加入我们">
+      <img src="docs/QQ2.jpg" height="520" alt="欢迎加入我们">
       <br>
       <span>欢迎加入我们</span>
     </td>
