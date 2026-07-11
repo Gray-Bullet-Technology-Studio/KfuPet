@@ -32,6 +32,13 @@
 
 <br />
 
+## 😋开始使用
+
+- 下载Windows版本：[点击下载](https://github.com/Lrht-llw/KfuPet/releases/latest)
+- 下载安卓版本：[点击下载](https://github.com/Gray-Bullet-Technology-Studio/KfuPet-for-Android/releases/latest)
+
+<br />
+
 ## 🍪 关于画饼
 
 ### 项目正在积极开发中，敬请期待 🚀
@@ -89,13 +96,3 @@
 
 <br />
 
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=Lrht-llw%2FKfuPet&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&theme=dark&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
- </picture>
-</a>
