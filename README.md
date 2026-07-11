@@ -92,10 +92,10 @@
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=Lrht-llw%2FKfuPet&type=timeline&logscale=&legend=bottom-right">
+<a href="https://www.star-history.com/?repos=Lrht-llw%2FKfuPet&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=timeline&theme=dark&logscale&legend=bottom-right" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=timeline&logscale&legend=bottom-right" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=timeline&logscale&legend=bottom-right" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&theme=dark&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Lrht-llw/KfuPet&type=date&legend=top-left&sealed_token=ahPQyGtRWGvq-Y0Su25SHJUcJAtbT1OlRUYYYAjENX9e22mKqonQeFFhn51O5rzRvhD4XhuNCHmcvkbDvTXKAwuQvs5BvPHTNxzltxUM4Lppv3YL-fTC5grzXawRAd9bFNslXiBZLQ5dgmYgEeocapKzJ57BZubDV5E0CZBetJZI51Jf338VdmYr01J0" />
  </picture>
 </a>
