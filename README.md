@@ -14,18 +14,13 @@
 
 ## 说明
 
-<table border="4" cellpadding="16" cellspacing="0">
-<tr>
-<td>
-<h3>关于本项目</h3>
-<ul>
-<li>本项目 <strong>KfuPet</strong> 是一款基于 <strong>WinUI</strong> 开发的桌面宠物应用</li>
-<li>采用 <strong>混合动作系统</strong>，结合本地预设动画与 AI 实时驱动，实现低成本、高性能且富有创意的角色交互表现</li>
-<li>本项目采用 <strong>AGPL-3.0</strong> 协议 + 自定协议进行开源，还请务必遵守相关条款</li>
-</ul>
-</td>
-</tr>
-</table>
+> [!WARNING]
+>
+> ### 关于本项目
+>
+> - 本项目 **KfuPet** 是一款基于 **WinUI** 开发的桌面宠物应用
+> - 采用 **混合动作系统**，结合本地预设动画与 AI 实时驱动，实现低成本、高性能且富有创意的角色交互表现
+> - 本项目采用 **AGPL-3.0** 协议 + 自定协议进行开源，还请务必遵守相关条款
 
 欢迎各位大佬 `Star` 😍
 
