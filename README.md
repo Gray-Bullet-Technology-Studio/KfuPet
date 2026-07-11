@@ -14,7 +14,7 @@
 
 ## 说明
 
-<div style="border: 2px solid yellow; border-radius: 8px; padding: 16px; margin: 16px 0;">
+<div style="border: 2px solid #FFFF00; border-radius: 8px; padding: 16px; margin: 16px 0;">
 <h3>关于本项目</h3>
 <ul>
 <li>本项目 <strong>KfuPet</strong> 是一款基于 <strong>WinUI</strong> 开发的桌面宠物应用</li>
