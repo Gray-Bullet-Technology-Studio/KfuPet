@@ -14,7 +14,7 @@
 
 ## 说明
 
-<table border="2" cellpadding="16" cellspacing="0">
+<table border="4" cellpadding="16" cellspacing="0">
 <tr>
 <td>
 <h3>关于本项目</h3>
