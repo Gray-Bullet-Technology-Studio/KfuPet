@@ -54,6 +54,22 @@
 
 ## 加入我们
 
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="docs/QQ.jpg" height="200" alt="欢迎加入讨论">
+      <br>
+      <span>欢迎加入讨论</span>
+    </td>
+    <td align="center">
+      <img src="docs/QQ2.jpg" height="200" alt="欢迎加入我们">
+      <br>
+      <span>欢迎加入我们</span>
+    </td>
+  </tr>
+</table>
+
+
 ## 😘鸣谢
 
 - [xiao-Kfu](https://github.com/xiao-Kfu) 图片模型提供
