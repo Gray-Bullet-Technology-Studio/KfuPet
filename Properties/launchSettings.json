@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "KfuPet (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "KfuPet (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
