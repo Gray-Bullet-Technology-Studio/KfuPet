@@ -14,6 +14,15 @@
     </Window.SystemBackdrop>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <Grid x:Name="DragRegion" Grid.Row="0" Background="Transparent" />
+
+        <Grid Grid.Row="1">
+
+        </Grid>
     </Grid>
 </Window>

@@ -40,7 +40,6 @@
         BackgroundColor="transparent"
         Square150x150Logo="Assets\icon\Square150x150Logo.png"
         Square44x44Logo="Assets\icon\Square44x44Logo.png">
-        <uap:SplashScreen Image="Assets\icon\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>

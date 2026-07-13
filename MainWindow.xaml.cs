@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Windowing;
 using System;
 
@@ -13,6 +13,15 @@ namespace KfuPet
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = AppWindow.GetFromWindowId(windowId);
             appWindow.Resize(new Windows.Graphics.SizeInt32(512, 768));
+
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(DragRegion);
+
+            var presenter = appWindow.Presenter as OverlappedPresenter;
+            if (presenter != null)
+            {
+                presenter.SetBorderAndTitleBar(false, false);
+            }
         }
     }
 }
