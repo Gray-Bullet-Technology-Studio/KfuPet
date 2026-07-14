@@ -90,6 +90,11 @@
 
 表单由 [contrib.rocks](https://contrib.rocks). 提供
 
+## 贡献者
+<a href="https://github.com/Gray-Bullet-Technology-Studio/KfuPet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Gray-Bullet-Technology-Studio/KfuPet" />
+</a>
+
 ## 📜 开源许可
 
 - **本项目仅供个人学习研究使用，禁止用于商业及非法用途**
