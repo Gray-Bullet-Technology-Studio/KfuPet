@@ -81,7 +81,8 @@
 ## 😘鸣谢
 
 - [xiao-Kfu](https://github.com/xiao-Kfu) 图片模型提供
-- 等。。。
+
+[![](https://opencollective.com/KfuPet/contributors.svg?width=890)](https://github.com/Gray-Bullet-Technology-Studio/KfuPet/contributors)
 
 ## 📜 开源许可
 
