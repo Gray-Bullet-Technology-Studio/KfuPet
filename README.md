@@ -82,7 +82,11 @@
 
 - [xiao-Kfu](https://github.com/xiao-Kfu) 图片模型提供
 
-[![](https://opencollective.com/KfuPet/contributors.svg?width=890)](https://github.com/Gray-Bullet-Technology-Studio/KfuPet/contributors)
+<a href="https://github.com/Gray-Bullet-Technology-Studio/KfuPet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Gray-Bullet-Technology-Studio/KfuPet" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## 📜 开源许可
 
