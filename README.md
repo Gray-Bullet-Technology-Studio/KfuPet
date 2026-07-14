@@ -82,11 +82,13 @@
 
 - [xiao-Kfu](https://github.com/xiao-Kfu) 图片模型提供
 
+### 🧑‍💻贡献者列表
+
 <a href="https://github.com/Gray-Bullet-Technology-Studio/KfuPet/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Gray-Bullet-Technology-Studio/KfuPet" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+表单由 [contrib.rocks](https://contrib.rocks). 提供
 
 ## 📜 开源许可
 
