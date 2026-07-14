@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Windowing;
 using System;
 using System.Runtime.InteropServices;
@@ -62,10 +63,17 @@ namespace KfuPet
             timer.Tick += (s, e) =>
             {
                 timer.Stop();
-                SplashCompleted?.Invoke(this, EventArgs.Empty);
-                Close();
+                FadeOutStoryboard.Completed += FadeOutStoryboard_Completed;
+                FadeOutStoryboard.Begin();
             };
             timer.Start();
+        }
+
+        private void FadeOutStoryboard_Completed(object? sender, object e)
+        {
+            FadeOutStoryboard.Completed -= FadeOutStoryboard_Completed;
+            SplashCompleted?.Invoke(this, EventArgs.Empty);
+            Close();
         }
     }
 }

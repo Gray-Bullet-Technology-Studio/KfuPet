@@ -7,7 +7,22 @@
     mc:Ignorable="d"
     Title="KfuPet - Loading">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Image Source="Assets/icon/Startlogo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="155" Height="155" Stretch="Uniform"/>
+        
+        <Grid.Resources>
+            <Storyboard x:Name="FadeOutStoryboard">
+                <DoubleAnimation
+                    Storyboard.TargetName="RootGrid"
+                    Storyboard.TargetProperty="Opacity"
+                    From="1"
+                    To="0"
+                    Duration="0:0:0.5">
+                    <DoubleAnimation.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
     </Grid>
 </Window>

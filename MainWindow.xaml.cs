@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Windowing;
 using System;
 
@@ -22,6 +23,11 @@ namespace KfuPet
             {
                 presenter.SetBorderAndTitleBar(false, false);
             }
+        }
+
+        public void PlayFadeInAnimation()
+        {
+            FadeInStoryboard.Begin();
         }
     }
 }

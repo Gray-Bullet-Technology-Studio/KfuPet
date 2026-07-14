@@ -13,7 +13,7 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid>
+    <Grid x:Name="RootGrid" Opacity="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
             <RowDefinition Height="*" />
@@ -24,5 +24,20 @@
         <Grid Grid.Row="1">
 
         </Grid>
+        
+        <Grid.Resources>
+            <Storyboard x:Name="FadeInStoryboard">
+                <DoubleAnimation
+                    Storyboard.TargetName="RootGrid"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.5">
+                    <DoubleAnimation.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
     </Grid>
 </Window>

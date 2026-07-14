@@ -5,7 +5,7 @@ namespace KfuPet
 {
     public partial class App : Application
     {
-        private Window? _mainWindow;
+        private MainWindow? _mainWindow;
 
         public App()
         {
@@ -26,6 +26,7 @@ namespace KfuPet
             splashWindow.SplashCompleted += (s, e) =>
             {
                 appWindow.Show();
+                _mainWindow?.PlayFadeInAnimation();
             };
             splashWindow.Activate();
         }
