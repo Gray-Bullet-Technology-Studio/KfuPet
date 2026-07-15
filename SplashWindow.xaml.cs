@@ -1,8 +1,12 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Windowing;
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Text.Json;
+using Windows.UI;
 
 namespace KfuPet
 {
@@ -20,7 +24,53 @@ namespace KfuPet
         {
             InitializeComponent();
             SetupWindow();
+            LoadVersion();
+            SetupMask();
+            StartEntranceAnimation();
             StartCountdown();
+        }
+
+        private void StartEntranceAnimation()
+        {
+            FadeInStoryboard.Begin();
+        }
+
+        private void SetupMask()
+        {
+            if (RootGrid.Background is SolidColorBrush brush)
+            {
+                var color = brush.Color;
+                var transparent = Color.FromArgb(0, color.R, color.G, color.B);
+
+                var gradient = new LinearGradientBrush
+                {
+                    StartPoint = new Windows.Foundation.Point(0, 0),
+                    EndPoint = new Windows.Foundation.Point(1, 0)
+                };
+                gradient.GradientStops.Add(new GradientStop { Offset = 0, Color = color });
+                gradient.GradientStops.Add(new GradientStop { Offset = 0.92, Color = color });
+                gradient.GradientStops.Add(new GradientStop { Offset = 1, Color = transparent });
+
+                SubtitleMask.Fill = gradient;
+            }
+        }
+
+        private void LoadVersion()
+        {
+            try
+            {
+                var versionPath = Path.Combine(AppContext.BaseDirectory, "Config", "Version.json");
+                var json = File.ReadAllText(versionPath);
+                using var doc = JsonDocument.Parse(json);
+                if (doc.RootElement.TryGetProperty("version", out var versionElement))
+                {
+                    VersionText.Text = $"v{versionElement.GetString()}";
+                }
+            }
+            catch
+            {
+                // 版本文件读取失败时不显示版本号
+            }
         }
 
         private void SetupWindow()
@@ -59,7 +109,7 @@ namespace KfuPet
         private void StartCountdown()
         {
             var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(3);
+            timer.Interval = TimeSpan.FromSeconds(4);
             timer.Tick += (s, e) =>
             {
                 timer.Stop();
