@@ -2,7 +2,7 @@
 
 # KfuPet AI Development Guidelines
 
-Version: 1.1
+Version: 2.0
 
 > If this document conflicts with explicit user instructions, always follow the user's latest instructions.
 
@@ -32,7 +32,7 @@ Windows Desktop
 
 Framework
 
-WinUI 3
+WPF (.NET)
 
 Language
 
@@ -458,7 +458,7 @@ Ask for clarification or leave a TODO comment instead of making assumptions.
 Unless explicitly requested, NEVER:
 
 - Rewrite the entire project.
-- Replace WinUI.
+- Replace the UI framework without explicit user permission.
 - Change programming language.
 - Remove existing architecture.
 - Add heavy third-party libraries.
@@ -563,3 +563,52 @@ Do not intentionally leave code with known errors.
 Never tell the user to compile the project before checking the modified code yourself.
 
 Always perform a self-review of the generated code before considering the task complete..
+
+---
+# WPF Guidelines
+
+Prefer native WPF capabilities whenever possible.
+
+Use:
+- AllowsTransparency
+- WindowStyle=None
+- Background=Transparent
+
+Prefer MVVM.
+Keep UI and business logic separated.
+Avoid unnecessary Win32 API calls unless required.
+
+---
+# Third-party Libraries
+
+Preferred libraries:
+- SkiaSharp
+- NAudio
+- SQLite
+- CommunityToolkit.Mvvm
+
+Avoid adding unnecessary dependencies.
+
+---
+# AI Working Process
+
+1. Understand the user's request.
+2. Analyze the existing architecture.
+3. Make the smallest reasonable change.
+4. Preserve compatibility.
+5. Review modified code.
+6. Check for compile-time issues.
+7. Update related files if necessary.
+8. Explain the changes.
+9. Stop.
+
+Do not implement future features unless explicitly requested.
+
+---
+# Additional Restrictions
+
+Never:
+- Upgrade NuGet packages without permission.
+- Modify .csproj unless requested.
+- Add Preview or Experimental packages.
+- Change package versions without permission.
