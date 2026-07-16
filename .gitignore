@@ -3,3 +3,5 @@ bin/
 obj/
 AppPackages/
 *.user
+*.nupkg
+*.snupkg

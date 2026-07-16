@@ -12,7 +12,7 @@
         Background="Transparent"
         ResizeMode="NoResize"
         Topmost="True"
-        ShowInTaskbar="True"
+        ShowInTaskbar="False"
         WindowStartupLocation="Manual">
 
     <Grid x:Name="RootGrid"

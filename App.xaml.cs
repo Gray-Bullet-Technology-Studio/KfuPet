@@ -8,10 +8,14 @@ namespace KfuPet
     public partial class App : Application
     {
         private MainWindow? _mainWindow;
+        private System.Windows.Forms.NotifyIcon? _notifyIcon;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            // 初始化系统托盘图标
+            InitializeTrayIcon();
 
             // 主窗口预先创建但保持隐藏，等待 Splash 结束后再显示
             _mainWindow = new MainWindow();
@@ -26,6 +30,47 @@ namespace KfuPet
             };
             splashWindow.SplashCompleted += splashHandler;
             splashWindow.Show();
+        }
+
+        /// <summary>
+        /// 初始化系统托盘图标及右键菜单。
+        /// </summary>
+        private void InitializeTrayIcon()
+        {
+            var iconUri = new Uri("pack://application:,,,/Assets/icon/tray.ico");
+            var streamResourceInfo = GetResourceStream(iconUri);
+
+            _notifyIcon = new System.Windows.Forms.NotifyIcon
+            {
+                Icon = new System.Drawing.Icon(streamResourceInfo.Stream),
+                Visible = true,
+                Text = "KfuPet"
+            };
+
+            var contextMenu = new System.Windows.Forms.ContextMenuStrip();
+
+            var checkUpdateItem = new System.Windows.Forms.ToolStripMenuItem("检查更新");
+            var settingsItem = new System.Windows.Forms.ToolStripMenuItem("设置");
+            var exitItem = new System.Windows.Forms.ToolStripMenuItem("退出");
+
+            exitItem.Click += (s, args) =>
+            {
+                _notifyIcon?.Dispose();
+                Shutdown();
+            };
+
+            contextMenu.Items.Add(checkUpdateItem);
+            contextMenu.Items.Add(settingsItem);
+            contextMenu.Items.Add(new System.Windows.Forms.ToolStripSeparator());
+            contextMenu.Items.Add(exitItem);
+
+            _notifyIcon.ContextMenuStrip = contextMenu;
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            _notifyIcon?.Dispose();
+            base.OnExit(e);
         }
     }
 }

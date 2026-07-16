@@ -14,7 +14,7 @@
         ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen">
 
-    <Grid x:Name="RootGrid" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+    <Grid x:Name="RootGrid">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image x:Name="LogoImage"
                    Source="pack://application:,,,/Assets/icon/Startlogo.png"

@@ -5,8 +5,10 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>KfuPet</RootNamespace>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Assets\icon\app.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
@@ -16,8 +18,8 @@
 
   <ItemGroup>
     <Resource Include="Assets\icon\Startlogo.png" />
-    <Resource Include="Assets\icon\Square150x150Logo.scale-200.png" />
-    <Resource Include="Assets\icon\Square44x44Logo.scale-200.png" />
+    <Resource Include="Assets\icon\app.ico" />
+    <Resource Include="Assets\icon\tray.ico" />
     <Resource Include="Characters\logo.png" />
     <Content Include="Config\Version.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
