@@ -35,7 +35,7 @@
 ## 😋开始使用
 
 - 下载Windows版本：[点击下载](https://github.com/Lrht-llw/KfuPet/releases/latest)
-- 下载安卓版本：[点击下载](https://github.com/Gray-Bullet-Technology-Studio/KfuPet-for-Android/releases/latest)
+- 下载安卓版本：[点击下载](https://github.com/KfuPet/KfuPet-for-Android/releases/latest)
 
 <br />
 
@@ -83,8 +83,8 @@
 
 ### 🧑‍💻贡献者
 
-<a href="https://github.com/Gray-Bullet-Technology-Studio/KfuPet/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Gray-Bullet-Technology-Studio/KfuPet" />
+<a href="https://github.com/KfuPet/KfuPet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=KfuPet/KfuPet" />
 </a>
 
 表单由 [contrib.rocks](https://contrib.rocks). 提供
