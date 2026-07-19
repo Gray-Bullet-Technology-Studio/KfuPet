@@ -3,5 +3,10 @@ bin/
 obj/
 AppPackages/
 *.user
+*.suo
 *.nupkg
 *.snupkg
+*.pdb
+*.log
+.idea/
+_ReSharper*/

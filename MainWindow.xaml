@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:KfuPet.Controls"
         mc:Ignorable="d"
         Title="KfuPet"
         Width="512"
@@ -20,16 +21,10 @@
           MouseLeftButtonDown="RootGrid_MouseLeftButtonDown"
           MouseMove="RootGrid_MouseMove"
           MouseLeftButtonUp="RootGrid_MouseLeftButtonUp">
-        <!-- 角色图片（暂用 logo.png 代替） -->
-        <Image x:Name="CharacterImage"
-               Source="pack://application:,,,/Characters/logo.png"
-               Stretch="Uniform"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Width="400"
-               Height="400"
-               IsHitTestVisible="False"/>
-
+        <controls:CharacterCanvas x:Name="CharacterCanvas"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+        
         <Grid.Resources>
             <Storyboard x:Key="FadeInStoryboard">
                 <DoubleAnimation
