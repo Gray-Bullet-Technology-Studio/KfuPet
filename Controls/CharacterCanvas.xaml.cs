@@ -27,7 +27,18 @@ namespace KfuPet.Controls
         public CharacterCanvas()
         {
             InitializeComponent();
+            Loaded += CharacterCanvas_Loaded;
             InitializeRenderer();
+        }
+
+        private void CharacterCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            var parent = Window.GetWindow(this);
+            if (parent != null)
+            {
+                RenderCanvas.Width = parent.ActualWidth;
+                RenderCanvas.Height = parent.ActualHeight;
+            }
         }
 
         // 此代码只做演示作用，后期会进行修改删除

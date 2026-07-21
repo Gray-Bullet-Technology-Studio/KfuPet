@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -19,6 +19,9 @@ namespace KfuPet
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool GetCursorPos(out POINT lpPoint);
 
+        [DllImport("user32.dll")]
+        private static extern int GetDpiForWindow(IntPtr hWnd);
+
         [StructLayout(LayoutKind.Sequential)]
         private struct POINT
         {
@@ -32,10 +35,11 @@ namespace KfuPet
         private POINT _dragStartCursorPos;
         private double _windowStartLeft;
         private double _windowStartTop;
-        private double _dpiScaleX = double.NaN;
-        private double _dpiScaleY = double.NaN;
+
         private const int HOLD_DELAY_MS = 300;
         private const int DRAG_THRESHOLD = 5;
+        private double _dpiScaleX = double.NaN;
+        private double _dpiScaleY = double.NaN;
 
         // 此代码只做演示作用，后期会进行修改删除
         private Skeleton? _skeleton;
@@ -43,14 +47,23 @@ namespace KfuPet
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            int dpi = GetDpiForWindow(hwnd);
+            double dpiScale = dpi / 96.0;
+            Width = 512 / dpiScale;
+            Height = 768 / dpiScale;
             CenterWindow();
-            // 此代码只做演示作用，后期会进行修改删除
-            InitializeSkeleton();
+            InitializeSkeleton(dpiScale);
         }
 
         // 此代码只做演示作用，后期会进行修改删除
         // 手动创建演示用骨骼结构，实际项目中将从配置文件加载角色数据
-        private void InitializeSkeleton()
+        private void InitializeSkeleton(double dpiScale)
         {
             // 此代码只做演示作用，后期会进行修改删除
             _skeleton = new Skeleton();
@@ -62,7 +75,7 @@ namespace KfuPet
                 Id = "root",             // 骨骼唯一标识符
                 Name = "Root",           // 骨骼显示名称
                 ParentId = null,         // 无父骨骼，作为根节点
-                LocalPosition = new Point(256, 768)  // 画布底部中心位置 (512x768)
+                LocalPosition = new Point(256 / dpiScale, 384 / dpiScale)  // 画布中心位置 (512x768)，转换为逻辑像素
             });
 
             // ==================== 身体骨骼 ====================
@@ -73,7 +86,7 @@ namespace KfuPet
                 Id = "body",             // 身体骨骼
                 Name = "Body",           // 身体
                 ParentId = "root",       // 连接到根骨骼
-                LocalPosition = new Point(0, -180)   // 向上偏移180像素
+                LocalPosition = new Point(0, -180 / dpiScale)   // 向上偏移180像素，转换为逻辑像素
             });
 
             // ==================== 颈部骨骼 ====================
@@ -84,7 +97,7 @@ namespace KfuPet
                 Id = "neck",             // 颈部骨骼
                 Name = "Neck",           // 颈部
                 ParentId = "body",       // 连接到身体
-                LocalPosition = new Point(0, -80)    // 向上偏移80像素
+                LocalPosition = new Point(0, -80 / dpiScale)    // 向上偏移80像素，转换为逻辑像素
             });
 
             // ==================== 头部骨骼 ====================
@@ -95,7 +108,7 @@ namespace KfuPet
                 Id = "head",             // 头部骨骼
                 Name = "Head",           // 头部
                 ParentId = "neck",       // 连接到颈部（而非直接连接身体）
-                LocalPosition = new Point(0, -50)    // 向上偏移50像素
+                LocalPosition = new Point(0, -50 / dpiScale)    // 向上偏移50像素，转换为逻辑像素
             });
 
             // ==================== 左臂骨骼 ====================
@@ -106,7 +119,7 @@ namespace KfuPet
                 Id = "arm_left_upper",       // 左上臂骨骼
                 Name = "LeftArmUpper",       // 左上臂
                 ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(-106, 0)   // 向左偏移106，Y=0（水平延伸，肩部在身体中心高度）
+                LocalPosition = new Point(-106 / dpiScale, 0)   // 向左偏移106，Y=0（水平延伸，肩部在身体中心高度），转换为逻辑像素
             });
             // 下臂：连接上臂末端，向下延伸（Y值为正数表示向下）
             // 此代码只做演示作用，后期会进行修改删除
@@ -115,7 +128,7 @@ namespace KfuPet
                 Id = "arm_left_lower",       // 左下臂骨骼
                 Name = "LeftArmLower",       // 左下臂
                 ParentId = "arm_left_upper", // 连接到左上臂（肘部关节）
-                LocalPosition = new Point(0, 100)    // 向下延伸100像素（自然下垂）
+                LocalPosition = new Point(0, 100 / dpiScale)    // 向下延伸100像素（自然下垂），转换为逻辑像素
             });
 
             // ==================== 右臂骨骼 ====================
@@ -126,7 +139,7 @@ namespace KfuPet
                 Id = "arm_right_upper",      // 右上臂骨骼
                 Name = "RightArmUpper",      // 右上臂
                 ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(106, 0)   // 向右偏移106，Y=0（水平延伸，肩部在身体中心高度）
+                LocalPosition = new Point(106 / dpiScale, 0)   // 向右偏移106，Y=0（水平延伸，肩部在身体中心高度），转换为逻辑像素
             });
             // 下臂：连接上臂末端，向下延伸（Y值为正数表示向下）
             // 此代码只做演示作用，后期会进行修改删除
@@ -135,7 +148,7 @@ namespace KfuPet
                 Id = "arm_right_lower",      // 右下臂骨骼
                 Name = "RightArmLower",      // 右下臂
                 ParentId = "arm_right_upper",// 连接到右上臂（肘部关节）
-                LocalPosition = new Point(0, 100)    // 向下延伸100像素（自然下垂）
+                LocalPosition = new Point(0, 100 / dpiScale)    // 向下延伸100像素（自然下垂），转换为逻辑像素
             });
 
             // ==================== 左腿骨骼 ====================
@@ -146,7 +159,7 @@ namespace KfuPet
                 Id = "leg_left_upper",       // 左大腿骨骼
                 Name = "LeftLegUpper",       // 左大腿
                 ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(-56, 110)  // 向左偏移56，向下偏移110（髋部位置）
+                LocalPosition = new Point(-56 / dpiScale, 110 / dpiScale)  // 向左偏移56，向下偏移110（髋部位置），转换为逻辑像素
             });
             // 小腿：连接大腿末端，大腿小腿等长方便IK计算
             // 此代码只做演示作用，后期会进行修改删除
@@ -155,7 +168,7 @@ namespace KfuPet
                 Id = "leg_left_lower",       // 左小腿骨骼
                 Name = "LeftLegLower",       // 左小腿
                 ParentId = "leg_left_upper", // 连接到左大腿（膝盖关节）
-                LocalPosition = new Point(0, 110)    // 向下延伸110像素（与大腿等长）
+                LocalPosition = new Point(0, 110 / dpiScale)    // 向下延伸110像素（与大腿等长），转换为逻辑像素
             });
 
             // ==================== 右腿骨骼 ====================
@@ -166,7 +179,7 @@ namespace KfuPet
                 Id = "leg_right_upper",      // 右大腿骨骼
                 Name = "RightLegUpper",      // 右大腿
                 ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(56, 110)   // 向右偏移56，向下偏移110（髋部位置）
+                LocalPosition = new Point(56 / dpiScale, 110 / dpiScale)   // 向右偏移56，向下偏移110（髋部位置），转换为逻辑像素
             });
             // 小腿：连接大腿末端，大腿小腿等长方便IK计算
             // 此代码只做演示作用，后期会进行修改删除
@@ -175,7 +188,7 @@ namespace KfuPet
                 Id = "leg_right_lower",      // 右小腿骨骼
                 Name = "RightLegLower",      // 右小腿
                 ParentId = "leg_right_upper",// 连接到右大腿（膝盖关节）
-                LocalPosition = new Point(0, 110)    // 向下延伸110像素（与大腿等长）
+                LocalPosition = new Point(0, 110 / dpiScale)    // 向下延伸110像素（与大腿等长），转换为逻辑像素
             });
 
             // ==================== 更新变换 ====================
@@ -251,11 +264,6 @@ namespace KfuPet
             _isDragging = true;
         }
 
-        /// <summary>
-        /// 获取从物理像素到 WPF 设备无关单位的 DPI 缩放因子（懒加载）。
-        /// TransformFromDevice.M11/M22：设备像素 → WPF 单位。
-        /// 例如 150% DPI 时 M11=0.667，物理像素位移 * 0.667 = WPF 位移。
-        /// </summary>
         private (double scaleX, double scaleY) GetDpiScale()
         {
             if (!double.IsNaN(_dpiScaleX))

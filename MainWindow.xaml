@@ -6,8 +6,6 @@
         xmlns:controls="clr-namespace:KfuPet.Controls"
         mc:Ignorable="d"
         Title="KfuPet"
-        Width="512"
-        Height="768"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"

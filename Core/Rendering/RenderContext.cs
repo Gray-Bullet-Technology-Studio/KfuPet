@@ -1,3 +1,4 @@
+using System.Windows;
 using System.Windows.Controls;
 
 namespace KfuPet.Core.Rendering
@@ -13,6 +14,21 @@ namespace KfuPet.Core.Rendering
         public RenderContext(Canvas canvas)
         {
             Canvas = canvas;
+        }
+
+        public void UpdateDpiScale()
+        {
+            var source = PresentationSource.FromVisual(Canvas);
+            if (source?.CompositionTarget != null)
+            {
+                DpiScaleX = source.CompositionTarget.TransformFromDevice.M11;
+                DpiScaleY = source.CompositionTarget.TransformFromDevice.M22;
+            }
+            else
+            {
+                DpiScaleX = 1.0;
+                DpiScaleY = 1.0;
+            }
         }
     }
 }
