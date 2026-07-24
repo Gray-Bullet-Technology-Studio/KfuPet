@@ -6,6 +6,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using KfuPet.Models;
+using KfuPet.Services;
+using KfuPet.Services.Ipc;
 
 namespace KfuPet
 {
@@ -44,10 +46,23 @@ namespace KfuPet
         // 此代码只做演示作用，后期会进行修改删除
         private Skeleton? _skeleton;
 
+        internal SkeletonService SkeletonService { get; } = new SkeletonService();
+
+        internal MemoryService MemoryService { get; } = new MemoryService();
+
+        internal EmotionService EmotionService { get; } = new EmotionService();
+
+        internal VisionService VisionService { get; } = new VisionService();
+
+        internal CommandDispatcher CommandDispatcher { get; } = new CommandDispatcher();
+
+        private NamedPipeServer? _pipeServer;
+
         public MainWindow()
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
+            Closing += MainWindow_Closing;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -59,6 +74,20 @@ namespace KfuPet
             Height = 768 / dpiScale;
             CenterWindow();
             InitializeSkeleton(dpiScale);
+
+            CommandDispatcher.RegisterService(SkeletonService);
+            CommandDispatcher.RegisterService(MemoryService);
+            CommandDispatcher.RegisterService(EmotionService);
+            CommandDispatcher.RegisterService(VisionService);
+
+            _pipeServer = new NamedPipeServer(CommandDispatcher, Application.Current);
+            _pipeServer.Start();
+        }
+
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _pipeServer?.Stop();
+            _pipeServer?.Dispose();
         }
 
         // 此代码只做演示作用，后期会进行修改删除
@@ -179,6 +208,17 @@ namespace KfuPet
             _skeleton.UpdateWorldTransforms();  // 计算所有骨骼的世界坐标
             // 此代码只做演示作用，后期会进行修改删除
             CharacterCanvas.Skeleton = _skeleton;  // 将骨骼绑定到渲染画布
+
+            SkeletonService.BindSkeleton(_skeleton);
+            SkeletonService.SkeletonChanged += OnSkeletonServiceChanged;
+        }
+
+        private void OnSkeletonServiceChanged(object? sender, EventArgs e)
+        {
+            if (_skeleton != null)
+            {
+                CharacterCanvas.Render();
+            }
         }
 
         private void CenterWindow()
