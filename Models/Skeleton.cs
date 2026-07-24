@@ -1,3 +1,4 @@
+using System.Windows;
 using KfuPet.Core.Math;
 
 namespace KfuPet.Models
