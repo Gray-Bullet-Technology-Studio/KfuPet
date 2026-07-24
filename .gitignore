@@ -10,3 +10,10 @@ AppPackages/
 *.log
 .idea/
 _ReSharper*/
+Thumbs.db
+desktop.ini
+*.tmp
+*.cache
+*.bak
+*.swp
+.DS_Store
