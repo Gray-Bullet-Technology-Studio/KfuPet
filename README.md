@@ -80,6 +80,7 @@
 ## 😘鸣谢
 
 - [xiao-Kfu](https://github.com/xiao-Kfu) 图片模型提供
+- [SPlayer](https://github.com/SPlayer-Dev/SPlayer) 议题模板参考
 
 ### 🧑‍💻贡献者
 
