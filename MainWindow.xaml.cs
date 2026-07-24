@@ -78,117 +78,100 @@ namespace KfuPet
                 LocalPosition = new Point(256 / dpiScale, 384 / dpiScale)  // 画布中心位置 (512x768)，转换为逻辑像素
             });
 
-            // ==================== 身体骨骼 ====================
-            // 调整身体长度，让整体比例协调（身体:腿 ≈ 1:1）
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "body",             // 身体骨骼
-                Name = "Body",           // 身体
-                ParentId = "root",       // 连接到根骨骼
-                LocalPosition = new Point(0, -180 / dpiScale)   // 向上偏移180像素，转换为逻辑像素
+                Id = "body",
+                Name = "Body",
+                ParentId = "root",
+                LocalPosition = new Point(0, -100 / dpiScale)
             });
 
-            // ==================== 颈部骨骼 ====================
-            // 添加颈部骨骼，让头部转动更自然（点头、抬头）
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "neck",             // 颈部骨骼
-                Name = "Neck",           // 颈部
-                ParentId = "body",       // 连接到身体
-                LocalPosition = new Point(0, -80 / dpiScale)    // 向上偏移80像素，转换为逻辑像素
+                Id = "neck",
+                Name = "Neck",
+                ParentId = "body",
+                LocalPosition = new Point(0, -80 / dpiScale)
             });
 
-            // ==================== 头部骨骼 ====================
-            // 头部连接到颈部，而非直接连接身体，方便表情和头部运动
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "head",             // 头部骨骼
-                Name = "Head",           // 头部
-                ParentId = "neck",       // 连接到颈部（而非直接连接身体）
-                LocalPosition = new Point(0, -50 / dpiScale)    // 向上偏移50像素，转换为逻辑像素
+                Id = "head",
+                Name = "Head",
+                ParentId = "neck",
+                LocalPosition = new Point(0, -50 / dpiScale)
             });
 
-            // ==================== 左臂骨骼 ====================
-            // 上臂：连接身体左侧肩部位置，水平向左延伸
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "arm_left_upper",       // 左上臂骨骼
-                Name = "LeftArmUpper",       // 左上臂
-                ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(-106 / dpiScale, 0)   // 向左偏移106，Y=0（水平延伸，肩部在身体中心高度），转换为逻辑像素
-            });
-            // 下臂：连接上臂末端，向下延伸（Y值为正数表示向下）
-            // 此代码只做演示作用，后期会进行修改删除
-            _skeleton.AddBone(new Bone
-            {
-                Id = "arm_left_lower",       // 左下臂骨骼
-                Name = "LeftArmLower",       // 左下臂
-                ParentId = "arm_left_upper", // 连接到左上臂（肘部关节）
-                LocalPosition = new Point(0, 100 / dpiScale)    // 向下延伸100像素（自然下垂），转换为逻辑像素
+                Id = "arm_left_upper",
+                Name = "LeftArmUpper",
+                ParentId = "body",
+                LocalPosition = new Point(-80 / dpiScale, 0)
             });
 
-            // ==================== 右臂骨骼 ====================
-            // 上臂：连接身体右侧肩部位置，水平向右延伸
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "arm_right_upper",      // 右上臂骨骼
-                Name = "RightArmUpper",      // 右上臂
-                ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(106 / dpiScale, 0)   // 向右偏移106，Y=0（水平延伸，肩部在身体中心高度），转换为逻辑像素
-            });
-            // 下臂：连接上臂末端，向下延伸（Y值为正数表示向下）
-            // 此代码只做演示作用，后期会进行修改删除
-            _skeleton.AddBone(new Bone
-            {
-                Id = "arm_right_lower",      // 右下臂骨骼
-                Name = "RightArmLower",      // 右下臂
-                ParentId = "arm_right_upper",// 连接到右上臂（肘部关节）
-                LocalPosition = new Point(0, 100 / dpiScale)    // 向下延伸100像素（自然下垂），转换为逻辑像素
+                Id = "arm_left_lower",
+                Name = "LeftArmLower",
+                ParentId = "arm_left_upper",
+                LocalPosition = new Point(-100 / dpiScale, 0)
             });
 
-            // ==================== 左腿骨骼 ====================
-            // 大腿：连接身体下方左侧，缩短腿部比例更协调
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "leg_left_upper",       // 左大腿骨骼
-                Name = "LeftLegUpper",       // 左大腿
-                ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(-56 / dpiScale, 110 / dpiScale)  // 向左偏移56，向下偏移110（髋部位置），转换为逻辑像素
-            });
-            // 小腿：连接大腿末端，大腿小腿等长方便IK计算
-            // 此代码只做演示作用，后期会进行修改删除
-            _skeleton.AddBone(new Bone
-            {
-                Id = "leg_left_lower",       // 左小腿骨骼
-                Name = "LeftLegLower",       // 左小腿
-                ParentId = "leg_left_upper", // 连接到左大腿（膝盖关节）
-                LocalPosition = new Point(0, 110 / dpiScale)    // 向下延伸110像素（与大腿等长），转换为逻辑像素
+                Id = "arm_right_upper",
+                Name = "RightArmUpper",
+                ParentId = "body",
+                LocalPosition = new Point(80 / dpiScale, 0)
             });
 
-            // ==================== 右腿骨骼 ====================
-            // 大腿：连接身体下方右侧，缩短腿部比例更协调
-            // 此代码只做演示作用，后期会进行修改删除
             _skeleton.AddBone(new Bone
             {
-                Id = "leg_right_upper",      // 右大腿骨骼
-                Name = "RightLegUpper",      // 右大腿
-                ParentId = "body",           // 连接到身体
-                LocalPosition = new Point(56 / dpiScale, 110 / dpiScale)   // 向右偏移56，向下偏移110（髋部位置），转换为逻辑像素
+                Id = "arm_right_lower",
+                Name = "RightArmLower",
+                ParentId = "arm_right_upper",
+                LocalPosition = new Point(100 / dpiScale, 0)
             });
-            // 小腿：连接大腿末端，大腿小腿等长方便IK计算
-            // 此代码只做演示作用，后期会进行修改删除
+
             _skeleton.AddBone(new Bone
             {
-                Id = "leg_right_lower",      // 右小腿骨骼
-                Name = "RightLegLower",      // 右小腿
-                ParentId = "leg_right_upper",// 连接到右大腿（膝盖关节）
-                LocalPosition = new Point(0, 110 / dpiScale)    // 向下延伸110像素（与大腿等长），转换为逻辑像素
+                Id = "hip",
+                Name = "Hip",
+                ParentId = "body",
+                LocalPosition = new Point(0, 100 / dpiScale)
+            });
+
+            _skeleton.AddBone(new Bone
+            {
+                Id = "leg_left_upper",
+                Name = "LeftLegUpper",
+                ParentId = "hip",
+                LocalPosition = new Point(-40 / dpiScale, 80 / dpiScale)
+            });
+
+            _skeleton.AddBone(new Bone
+            {
+                Id = "leg_left_lower",
+                Name = "LeftLegLower",
+                ParentId = "leg_left_upper",
+                LocalPosition = new Point(0, 100 / dpiScale)
+            });
+
+            _skeleton.AddBone(new Bone
+            {
+                Id = "leg_right_upper",
+                Name = "RightLegUpper",
+                ParentId = "hip",
+                LocalPosition = new Point(40 / dpiScale, 80 / dpiScale)
+            });
+
+            _skeleton.AddBone(new Bone
+            {
+                Id = "leg_right_lower",
+                Name = "RightLegLower",
+                ParentId = "leg_right_upper",
+                LocalPosition = new Point(0, 100 / dpiScale)
             });
 
             // ==================== 更新变换 ====================
