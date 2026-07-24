@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 其它问题请到"讨论"发起
+    url: https://github.com/KfuPet/KfuPet/discussions/new/choose
+    about: 提问答疑请到讨论区发起
