@@ -1,0 +1,70 @@
+name: Feature Request
+description: 提议新功能或改进现有功能
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        感谢你为 KfuPet 提出新功能建议！请详细描述你的想法。
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "功能描述"
+      description: "清晰描述你提议的功能"
+      placeholder: "我希望 KfuPet 能够..."
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "使用场景"
+      description: "描述这个功能的使用场景和价值"
+      placeholder: "当用户...时，这个功能可以..."
+
+  - type: textarea
+    attributes:
+      label: "预期行为"
+      description: "描述这个功能应该如何工作"
+      placeholder: "用户执行操作 A 后，程序应该..."
+
+  - type: dropdown
+    validations:
+      required: true
+    attributes:
+      label: "优先级"
+      options:
+        - "低优先级（不影响核心功能）"
+        - "中优先级（提升用户体验）"
+        - "高优先级（核心功能缺失）"
+      default: 0
+
+  - type: dropdown
+    attributes:
+      label: "相关模块"
+      description: "选择此功能涉及的模块（可多选）"
+      multiple: true
+      options:
+        - "窗口系统"
+        - "角色渲染"
+        - "骨骼动画"
+        - "表情系统"
+        - "AI 对话"
+        - "记忆系统"
+        - "资源管理"
+        - "配置系统"
+        - "其他"
+
+  - type: textarea
+    attributes:
+      label: "实现建议"
+      description: "如果您有实现方面的建议，请在此提供"
+      placeholder: "建议使用...技术，或参考...项目"
+
+  - type: textarea
+    attributes:
+      label: "附加信息"
+      description: "其他相关信息，如截图、参考链接等"
+      placeholder: "其他相关信息..."
